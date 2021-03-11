@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-sm  navbar-light">
+   
+    <!-- Links -->
+    <ul class="navbar navbar-nav">
+        <li> 
+            <button class="btn btn-outline-info ml-2" (click)="onGetAllProducts()">ALL</button>
+        </li>
+        <li> 
+            <button class="btn btn-outline-info ml-2">selected</button>
+        </li>
+        <li> 
+            <button class="btn btn-outline-info ml-2">available</button>
+        </li>
+        <li> 
+            <button class="btn btn-outline-info ml-2" routerLink="/newProduct">add</button>
+        </li>
+    </ul>
+ </nav>
+ <div class="container">
+    <ng-container *ngIf="(products$ | async) as result" [ngSwitch]="result.dataState">
+    
+    <ng-container *ngSwitchCase="DataStateEnum.LOADING">
+        loading... 
+    </ng-container>
+    
+    <ng-container *ngSwitchCase="DataStateEnum.ERROR">
+        <div class="alert-danger">
+            {{result.errorMessage}}
+        </div> 
+      </ng-container>
+    
+    <ng-container *ngSwitchCase="DataStateEnum.LOADED">
+        <table class="table">
+            <tr>
+                <th>ID</th><th>NAME</th><th>quantity</th><th>price</th><th>selected</th><th>availble</th>
+            </tr>
+         
+            <tr *ngFor="let p of result.data ">
+                <td>{{p.id}}</td>
+                <td>{{p.name}}</td>
+                <td>{{p.quantity}}</td>
+                <td>{{p.price}}</td>
+             
+              
+                <td>
+                    <button  class="btn btn-danger" (click)="onDeleteProdcuts(p)">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </td>
+                <td>
+                    <button  class="btn btn-danger" (click)="onUpdateProduct(p)">
+                        <span class="fa fa-edit"></span>
+                    </button>
+                </td>
+            </tr>
+    
+        </table>
+    </ng-container>
+    
+    </ng-container>
+    </div>

@@ -1,0 +1,20 @@
+{
+  "products": [
+    {
+      "id": 13,
+      "name": "mouafek",
+      "price": 0,
+      "quantity": 0,
+      "selected": true,
+      "available": true
+    },
+    {
+      "name": "mahmoud",
+      "price": 0,
+      "quantity": 0,
+      "selected": true,
+      "available": true,
+      "id": 16
+    }
+  ]
+}
