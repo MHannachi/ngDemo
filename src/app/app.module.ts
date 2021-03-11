@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateProductComponent } from './components/update-product/update-product.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { UpdateProductComponent } from './components/update-product/update-produ
     HomeComponent,
     AddProductComponent,
     UpdateProductComponent,
+    AboutUsComponent,
  
   ],
   imports: [
